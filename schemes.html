@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schemes - KrishiSetu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+    <img src="krishisetufinallogo.jpeg" class="logo">
+    <h2>KrishiSetu</h2>
+
+    <div class="links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="schemes.html">Schemes</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<section class="content">
+
+    <h1>🌾 Government Schemes</h1>
+
+    <!-- Search -->
+    <input type="text" id="search" placeholder="Search schemes..." onkeyup="searchScheme()">
+
+    <!-- Filter -->
+    <select id="filter" onchange="filterScheme()">
+        <option value="all">All</option>
+        <option value="financial">Financial</option>
+        <option value="insurance">Insurance</option>
+    </select>
+
+    <!-- Schemes -->
+    <div class="cards" id="schemeList">
+
+        <!-- PM KISAN -->
+        <div class="card" data-type="financial">
+            <h3>PM-KISAN</h3>
+            <p><b>Who Can Apply:</b> Small farmers</p>
+            <p><b>Benefit:</b> ₹6000/year</p>
+            <p><b>Condition:</b> Must own land</p>
+            
+
+            <a href="https://pmkisan.gov.in" target="_blank" class="btn">Apply Now</a>
+        </div>
+
+        <!-- KCC -->
+        <div class="card" data-type="financial">
+            <h3>Kisan Credit Card</h3>
+            <p><b>Who Can Apply:</b> Farmers</p>
+            <p><b>Benefit:</b> Loan</p>
+            <p><b>Condition:</b> Bank account needed</p>
+
+            <a href="https://www.myscheme.gov.in" target="_blank" class="btn">Apply Now</a>
+        </div>
+
+        <!-- Insurance -->
+        <div class="card" data-type="insurance">
+            <h3>Crop Insurance</h3>
+            <p><b>Who Can Apply:</b> All farmers</p>
+            <p><b>Benefit:</b> Loss protection</p>
+            <p><b>Condition:</b> Crop registration</p>
+
+            <a href="https://pmfby.gov.in" target="_blank" class="btn">Apply Now</a>
+        </div>
+       <div class="warning-section">
+
+    <p class="warning-text">
+    ⚠️ You should receive full amount. No officer has the right to deduct money.
+    Always verify your payment online. (तुम्हाला पूर्ण रक्कम मिळाली पाहिजे.)
+    </p>
+
+    <h3 class="help-title">
+    What to do if you receive less amount?
+    </h3>
+
+    <ul class="help-list">
+        <li>Check your payment status online</li>
+        <li>Ask for official receipt</li>
+        <li>Call helpline: 155261</li>
+    </ul>
+
+</div>
+
+    </div>
+
+</section>
+
+<!-- JS for Search & Filter -->
+<script>
+function searchScheme() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.getElementsByClassName("card");
+
+    for (let i = 0; i < cards.length; i++) {
+        let text = cards[i].innerText.toLowerCase();
+        cards[i].style.display = text.includes(input) ? "block" : "none";
+    }
+}
+
+function filterScheme() {
+    let value = document.getElementById("filter").value;
+    let cards = document.getElementsByClassName("card");
+
+    for (let i = 0; i < cards.length; i++) {
+        if (value === "all" || cards[i].dataset.type === value) {
+            cards[i].style.display = "block";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
+<!-- Footer -->
+<footer>
+    <p>© 2026 KrishiSetu | Empowering Farmers🌾</p>
+</footer>
+</body>
+</html>
