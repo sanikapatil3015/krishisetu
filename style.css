@@ -399,7 +399,7 @@ footer {
     font-weight: bold;
     color: #333;
 }
-=======
+
 /* This code only runs on mobile devices */
 @media (max-width: 768px) {
   .nav {
